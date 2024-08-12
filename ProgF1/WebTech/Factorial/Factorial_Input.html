@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Input</title>
+</head>
+<body>
+
+<form id="factorialForm">
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" name="numberInput" required>
+    <input type="submit" value="Calculate Factorial">
+</form>
+
+<div id="result"></div>
+
+<script>
+    function fact(n) {
+        if (n === 0 || n === 1) return 1;
+        return n * fact(n - 1);
+    }
+
+    document.getElementById('factorialForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const number = parseInt(document.getElementById('numberInput').value);
+        if (!isNaN(number)) {
+            document.getElementById('result').innerText = 'The factorial of ' + number + ' is ' + fact(number);
+        } else {
+            document.getElementById('result').innerText = 'Please enter a valid number.';
+        }
+    });
+</script>
+
+</body>
+</html>

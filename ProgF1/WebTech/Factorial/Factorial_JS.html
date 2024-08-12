@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorial</title>
+</head>
+<body>
+
+<script>
+    function fact(n) {
+        if (n === 0 || n === 1) return 1;
+        return n * fact(n - 1);
+    }
+</script>
+
+<!-- Option 1: Using an alert -->
+<button type="button" onClick="alert(fact(5))">Alert</button>
+
+<!-- Option 2: Displaying the result in a specific element -->
+<div id="result"></div>
+<button type="button" onClick="document.getElementById('result').innerText = 'Factorial of 5 is: ' + fact(5)">Factorial</button>
+
+</body>
+</html>
