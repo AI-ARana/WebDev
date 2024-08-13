@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         resultBody.appendChild(row);
     }
+   
 
     if (studentData1) {
         const row = document.createElement('tr');
