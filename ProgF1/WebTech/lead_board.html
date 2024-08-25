@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olympic Leaderboard</title>
+    <title>Leaderboard</title>
     <link rel="stylesheet" href="lead_board.css">
 </head>
 <body>
-<h1>Olympic Leaderboard</h1>
+
 <form id="medalForm">
-    <input type="text" id="country" placeholder="Country" required>
-    <input type="number" id="gold" placeholder="Gold" required>
-    <input type="number" id="silver" placeholder="Silver" required>
-    <input type="number" id="bronze" placeholder="Bronze" required>
+    <label for="country"></label><input type="text" id="country" placeholder="Country" required>
+    <label for="gold"></label><input type="number" id="gold" placeholder="Gold" required>
+    <label for="silver"></label><input type="number" id="silver" placeholder="Silver" required>
+    <label for="bronze"></label><input type="number" id="bronze" placeholder="Bronze" required>
     <button type="button" onclick="addMedals()">Add Medals</button>
 </form>
 
-<h2>Current Standings</h2>
+<h2>Leaderboard Tally</h2>
 <table>
     <thead>
     <tr>

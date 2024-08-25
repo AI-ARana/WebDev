@@ -12,18 +12,54 @@ table {
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 3px solid #1542e5;
+
 }
 
 th, td {
     padding: 10px;
+    border: 2px solid #1542e5;
 }
 
 th {
-    background-color: aqua;
+    background-color: #ffffff;
+    font-weight: bold;
+    color: orangered;
 }
 
 input {
-    margin: 5px;
-    padding: 5px;
+   // margin: 5px;
+    // padding: 5px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    background-color: gold;
 }
+
+input::placeholder {
+    color: hsl(308, 81%, 45%);
+    font-weight: bold;
+
+}
+
+button {
+    background-color: gold;
+    color: hsl(308, 81%, 45%);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+
+}
+button:hover {
+    background-color: aqua;
+    transform: translateY(-2px);
+}
+
