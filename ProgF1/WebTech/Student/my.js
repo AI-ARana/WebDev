@@ -22,11 +22,11 @@ function saveRedirect()
     }
 
     // Validation
-  /*  if (!validateName(name))
+  if (!validateName(name))
     {
         alert('Please enter a valid name (letters and spaces only).');
         return;
-    } */
+    }
 
     const empData={
         name:name,

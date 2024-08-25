@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Leaderboard</title>
+    <link rel="stylesheet" href="lead_board.css">
+</head>
+<body>
+<h1>Olympic Leaderboard</h1>
+<form id="medalForm">
+    <input type="text" id="country" placeholder="Country" required>
+    <input type="number" id="gold" placeholder="Gold" required>
+    <input type="number" id="silver" placeholder="Silver" required>
+    <input type="number" id="bronze" placeholder="Bronze" required>
+    <button type="button" onclick="addMedals()">Add Medals</button>
+</form>
+
+<h2>Current Standings</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Country</th>
+        <th><img src="img/Gold.png" alt="Gold" width="50" height="50"></th>
+        <th><img src="img/Silver.png" alt="Silver" width="50" height="50"></th>
+        <th><img src="img/Bronze.png" alt="Bronze" width="50" height="50"></th>
+
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody id="leaderboard">
+    <!-- Leaderboard data will be injected here -->
+    </tbody>
+</table>
+
+<script src="lead_board.js"></script>
+</body>
+</html>
