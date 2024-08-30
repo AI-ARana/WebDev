@@ -21,13 +21,13 @@
     // String Character Extraction
     // chatAt()
 
-    document.getElementById("test1").innerHTML = " The Character at 0 index of 'x' string=" + x.charAt(0);
+    document.getElementById("test1").innerHTML = " The Character at 0 index of 'x' string=" + x.charAt(2);
 
     // charCodeAt()
     document.getElementById("test2").innerHTML = "Ths UTF-16 at 0 index of 'x' string=" + x.charCodeAt(0);
 
     //at()
-    document.getElementById("test3").innerHTML = " The third letter of 'x' string=" + x.at(2);
+    document.getElementById("test3").innerHTML = " The third letter of 'x' string=" + x.at(-5);
     //[]
     document.getElementById("test4").innerHTML = " The third letter of 'x' string=" + x[3];
     // String Part Extraction
@@ -42,7 +42,7 @@
     //let s = y.slice(10, 17);
     document.getElementById("test6").innerHTML=" The letter between position (11 to 18) of 'y' string =" + y.slice(11,18);
     //slice(11)
-    document.getElementById("test7").innerHTML=" The letter between position (11 to end) of 'y' string =" + y.slice(11);
+    document.getElementById("test7").innerHTML=" The letter between position (11 to end) of 'y' string =" + y.slice(18);
     //slice(-12)
     document.getElementById("test8").innerHTML=" The letter between position (-14) of 'y' string =" + y.slice(-14);
 </script>

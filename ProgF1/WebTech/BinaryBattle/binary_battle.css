@@ -1,8 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 50px;
-    background-color: aquamarine;
+    background-color:snow;
+}
+h2 {
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
 table {
@@ -22,7 +33,7 @@ th, td {
 }
 
 th {
-    background-color: #ffffff;
+    background-color: greenyellow;
     font-weight: bold;
     color: orangered;
 }
@@ -39,7 +50,7 @@ input {
     transition: background-color 0.3s, transform 0.2s;
     background-color: gold;
 }
-#country {
+#team {
 // margin: 5px;
 // padding: 5px;
     border: none;
@@ -159,4 +170,30 @@ select:hover {
     100% {
         opacity: 0;
     }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.charts {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leaderboard {
+    width: 65%;
+    overflow-x: auto; /* Adds horizontal scroll if the table is too wide */
+}
+
+canvas {
+    width: 100% !important; /* Make canvas fill the container width */
+    height: auto !important; /* Maintain aspect ratio */
+    max-width: 100%; /* Adjust as needed */
+    max-height: 450px; /* Adjust as needed */
+    margin-bottom: 20px; /* Space between charts */
 }

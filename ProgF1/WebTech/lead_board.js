@@ -1,5 +1,6 @@
 // Leaderboard data
-let leaderboard = [];
+//let leaderboard = [];
+let leaderboard = JSON.parse(sessionStorage.getItem('leaderboard')) || [];
 
 // Function to add medals for a country
 function addMedals() {
@@ -8,6 +9,9 @@ function addMedals() {
     let gold = parseInt(document.getElementById("gold").value);
     let silver = parseInt(document.getElementById("silver").value);
     let bronze = parseInt(document.getElementById("bronze").value);
+    gold = isNaN(gold) ? 0 : gold;
+    silver = isNaN(silver) ? 0 : silver;
+    bronze = isNaN(bronze) ? 0 : bronze;
 
     // Check if the country already exists in the leaderboard
     let existingCountry = leaderboard.find(entry => entry.country === country);
@@ -33,7 +37,8 @@ function addMedals() {
         if (b.silver !== a.silver) return b.silver - a.silver;
         return b.bronze - a.bronze;
     });
-
+    // Save the updated leaderboard to sessionStorage
+    sessionStorage.setItem('leaderboard', JSON.stringify(leaderboard));
     // Update the displayed leaderboard
     displayLeaderboard();
 
@@ -60,3 +65,32 @@ function displayLeaderboard() {
         `;
     });
 }
+// Function to generate and download the leaderboard report
+function generateReport() {
+    let reportContent = 'Country,Gold,Silver,Bronze,Total\n';
+
+    leaderboard.forEach(entry => {
+        let total = entry.gold + entry.silver + entry.bronze;
+        reportContent += `${entry.country},${entry.gold},${entry.silver},${entry.bronze},${total}\n`;
+    });
+
+    // Create a blob from the report content
+    let blob = new Blob([reportContent], { type: "text/csv" });
+
+    // Create a link to download the blob as a file
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "leaderboard_report.csv"; // File name
+
+    // Append the link to the body (required for Firefox)
+    document.body.appendChild(link);
+
+    // Programmatically click the link to trigger the download
+    link.click();
+
+    // Remove the link after the download
+    document.body.removeChild(link);
+}
+
+// Call displayLeaderboard after updating leaderboard
+displayLeaderboard();
