@@ -1,0 +1,57 @@
+<!-- Call obj[Symbol.toPrimitive](hint) – the method with the symbolic key Symbol.toPrimitive (system symbol)-->
+
+<html>
+<!DOCTYPE html>
+<script>
+    "use strict";
+
+    let user = {
+        name: "Anurag Rana",
+        money: 10000,
+
+        [Symbol.toPrimitive](hint) {
+            alert(`hint: ${hint}`);
+            return hint == "string" ? `{name: "${this.name}"}` : this.money;
+        }
+    };
+
+    // conversions demo:
+    alert(user); // hint: string -> {name: "Anurag Rana"}
+    alert(+user); // hint: number -> 10000
+    alert(user + 5000); // hint: default -> 15000
+
+// toString Method
+    let user1 = {
+        name1: "Pankaj",
+        money1: 50000,
+
+        // for hint="string"
+        toString() {
+            return `{name: "${this.name1}"}`;
+        },
+
+        // for hint="number" or "default"
+        valueOf() {
+            return this.money1;
+        }
+
+    };
+
+    alert(user1); // toString -> {name: "Pankaj"}
+    alert(+user1); // valueOf -> 10000
+    alert(user1 + 500); // valueOf -> 50500
+// A single “catch-all” place to handle all primitive conversions. In this case, we can implement toString only
+
+    let user2 = {
+        name2: "Erra",
+
+        toString() {
+            return this.name2;
+        }
+    };
+
+    alert(user2); // toString -> Erra
+    alert(user2 + 500); // toString -> Erra500
+</script>
+<h2>Type Conversion: Object to Primitive type</h2>
+</html>
