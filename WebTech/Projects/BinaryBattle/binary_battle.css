@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: cursive;
+    text-align: center;
+    //margin-top: 50px;
+    background-color:white;
+    background-image: url("../../img/mac1.jpg");
+    background-size: cover; /* Makes the background image cover the entire page */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the background image fixed in place when scrolling */
+}
+
+
+h2 {
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+    font-family: cursive;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+table, th,td {
+    border: 3px solid greenyellow;
+    border-radius: 8px;
+
+}
+
+th, td {
+    padding: 10px;
+   // border: 2px solid #1542e5;
+    font-size: 21px;
+    font-weight: bold;
+    color: crimson;
+    background-color:lightgoldenrodyellow;
+
+
+}
+
+th {
+    background-color: greenyellow;
+    font-weight: bold;
+    color: orangered;
+    font-size: 21px;
+}
+
+input {
+   // margin: 5px;
+    // padding: 5px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 21px;
+    margin-top: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+    background-color: gold;
+    color: hsl(308, 81%, 45%);
+    font-family: cursive;
+}
+#team {
+// margin: 5px;
+// padding: 5px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 21px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    background-color: gold;
+    color: hsl(308, 81%, 45%);
+    font-weight: bold;
+    font-family: cursive;
+}
+
+input::placeholder {
+    color: hsl(308, 81%, 45%);
+    font-weight: bold;
+    font-family: cursive;
+
+}
+
+button {
+    background-color: gold;
+    color: hsl(308, 81%, 45%);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 21px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bolder;
+    font-family: cursive;
+
+}
+button:hover {
+    background-color: aqua;
+    transform: translateY(-2px);
+    border: 3px solid green;
+    outline: none;
+}
+button:focus {
+    background-color: aqua;
+        border: 3px solid red;
+        outline: none;
+}
+.button{
+    background-color: #cd0c0c;
+    color: hsl(129, 95%, 48%);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: cursive;
+
+
+}
+.button:hover {
+    background-color: #ce15b4;
+    transform: translateY(-2px);
+    border: 3px solid green;
+    outline: none;
+}
+.button:focus {
+    background-color: #ce15b4;
+    border: 3px solid red;
+    outline: none;
+}
+input[type="number"]:focus{
+    background-color: aqua;
+    border: 3px solid red;
+    outline: none;
+}
+
+input[type="number"]:focus{
+    background-color: aqua;
+    border: 3px solid red;
+    outline: none;
+}
+
+input[type="number"]:hover{
+    background-color: aqua;
+    border: 3px solid green;
+    outline: none;
+}
+select:focus {
+    background-color: aqua;
+    border: 2px solid purple;
+    outline: none;
+}
+
+select:hover {
+    background-color: aqua;
+    border: 2px solid purple;
+    outline: none;
+}
+#blinkLabel {
+    color: red;
+    font-weight: bold;
+    font-size: x-large;
+    animation: blinker 25s linear infinite;
+}
+
+@keyframes blinker {
+    100% {
+        opacity: 0;
+    }
+
+}
+#blinkLabel1 {
+    color: red;
+    font-weight: bold;
+    font-size: x-large;
+    animation: blinker 15s linear infinite;
+}
+
+@keyframes blinker {
+    100% {
+        opacity: 0;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+.charts {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leaderboard {
+    width: 65%;
+    overflow-x: auto; /* Adds horizontal scroll if the table is too wide */
+}
+
+canvas {
+    width: 100% !important; /* Make canvas fill the container width */
+    height: auto !important; /* Maintain aspect ratio */
+    max-width: 100%; /* Adjust as needed */
+    max-height: 450px; /* Adjust as needed */
+    margin-bottom: 20px; /* Space between charts */
+}
+.head {
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background:linear-gradient(to right, #fd1d1d, #ff50fb);
+    text-align: center; /* Center the text */
+    //margin-top: 20px; /* Add some margin at the top */
+}
+.head h1, .head h2 {
+    display: block; /* Ensure each heading is on a new line */
+    margin: 0; /* Remove default margin */
+    line-height: 1.2; /* Adjust line height */
+}
+
+.head h1 {
+    font-size: 3.7em; /* Set font size for h1 */
+    font-weight: bold; /* Make the text bold */
+    color: white;
+    font-family: "serif";
+}
+
+.head h2 {
+    font-size: 2.0em; /* Set font size for h2 */
+    font-weight: bolder; /* Set normal weight for h2 */
+    margin-top: 10px; /* Add some margin between h1 and h2 */
+    color: white;
+    font-family: Papyrus, ui-monospace;
+}
+#footer {
+    position:relative;
+    color: #fff;
+    padding: 20px;
+    font-size: 21px;
+    background: #111111;
+}
+#blinkLabel2 {
+    color: #ce15b4;
+    font-weight: bolder;
+    font-size: 72px;
+    animation: blinker 25s linear infinite;
+    font-family: monospace;
+}
+
+@keyframes blinker {
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript String Methods </title>
+</head>
+<body>
+<p id="test"></p>
+<p id="test1"></p>
+<p id="test2"></p>
+<p id="test3"></p>
+<p id="test5"></p>
+<p id="test6"></p>
+<p id="test7"></p>
+<p id="test8"></p>
+
+<script>
+    let x = "Anurag";
+    // Length Function
+    document.getElementById("test").innerHTML = "The Length of 'x' string =" + x.length;
+    // String Character Extraction
+    // chatAt()
+
+    document.getElementById("test1").innerHTML = " The Character at 0 index of 'x' string=" + x.charAt(2);
+
+    // charCodeAt()
+    document.getElementById("test2").innerHTML = "Ths UTF-16 at 0 index of 'x' string=" + x.charCodeAt(0);
+
+    //at()
+    document.getElementById("test3").innerHTML = " The third letter of 'x' string=" + x.at(-5);
+    //[]
+    document.getElementById("test4").innerHTML = " The third letter of 'x' string=" + x[3];
+    // String Part Extraction
+
+
+
+</script>
+<script>
+
+    // slice()
+    let y = " AI is the topmost growing domain";
+    //let s = y.slice(10, 17);
+    document.getElementById("test6").innerHTML=" The letter between position (11 to 18) of 'y' string =" + y.slice(11,18);
+    //slice(11)
+    document.getElementById("test7").innerHTML=" The letter between position (11 to end) of 'y' string =" + y.slice(18);
+    //slice(-12)
+    document.getElementById("test8").innerHTML=" The letter between position (-14) of 'y' string =" + y.slice(-14);
+</script>
+</body>
+</html>

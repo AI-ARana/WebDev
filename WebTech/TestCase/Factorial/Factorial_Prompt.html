@@ -1,0 +1,33 @@
+<!-- The prompt() function displays a dialog box that prompts the user for input. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Input</title>
+</head>
+<body>
+
+<script>
+    function getUserInput() {
+        const userInput = prompt("Please enter a number:");
+        if (userInput !== null) {
+            const number = parseInt(userInput);
+            if (!isNaN(number)) {
+                alert("The factorial of " + number + " is " + fact(number));
+            } else {
+                alert("Please enter a valid number.");
+            }
+        }
+    }
+
+    function fact(n) {
+        if (n === 0 || n === 1) return 1;
+        return n * fact(n - 1);
+    }
+</script>
+
+<button type="button" onClick="getUserInput()">Click to Enter a Number</button>
+
+</body>
+</html>
