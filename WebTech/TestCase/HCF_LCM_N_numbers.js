@@ -22,7 +22,7 @@ function findHCFOfArray(arr) {
 function findLCMOfArray(arr) {
     return arr.reduce((lcm, num) => calculateLCM(lcm, num));
 }
-
+/*
 // Input
 
 let numbers = [15, 20, 30, 40]; // Example array of numbers
@@ -32,9 +32,9 @@ let lcm = findLCMOfArray(numbers);
 
 console.log(`HCF of [${numbers.join(', ')}] is ${hcf}`);
 console.log(`LCM of [${numbers.join(', ')}] is ${lcm}`);
+*/
 
 
-/*
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -54,4 +54,3 @@ rl.question('Enter numbers separated by space: ', (input) => {
 
     rl.close();
 });
-*/

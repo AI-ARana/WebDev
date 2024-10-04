@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Student Details Form</h2>
+<form id="studentForm" onsubmit="event.preventDefault(); saveStudentData();">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed"><br><br>
+
+    <label for="registration">Registration ID:</label>
+    <input type="text" id="registration" name="registration" required pattern="[0-9]{6}" title="Enter a 6-digit registration ID"><br><br>
+
+    <label for="programType">Program Type:</label>
+    <select id="programType" name="programType" onchange="updateDegreeOptions()" required>
+        <option value="">Select Program</option>
+        <option value="UG">Undergraduate</option>
+        <option value="PG">Postgraduate</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Research">Research</option>
+    </select><br><br>
+
+    <label for="degree">Degree:</label>
+    <select id="degree" name="degree" required>
+        <option value="">Select Degree</option>
+    </select><br><br>
+
+    <input type="submit" value="Save">
+</form>
+
+<h3>Search Student by Registration ID</h3>
+<div class="search-container">
+    <input type="text" id="searchRegID" placeholder="Enter Registration ID" class="small-input">
+    <button onclick="searchStudent()">Search</button>
+</div>
+
+<div id="searchResult"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

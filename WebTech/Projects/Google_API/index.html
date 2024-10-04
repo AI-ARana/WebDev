@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<form id="dataForm">
+    <label for="name"></label><input type="text" id="name" placeholder="Name" required>
+    <label for="department"></label><input type="text" id="department" placeholder="Department" required>
+    <label for="dob"></label><input type="date" id="dob" placeholder="Date of Birth" required>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const department = document.getElementById('department').value;
+        const dob = document.getElementById('dob').value;
+
+        fetch('https://script.google.com/macros/s/AKfycbwxajAFKqgo1qOJPwFsP0YTshFi5dM2SsWy4ePh_jUmHKgcXRgxmOt_9NeVVe4NYWFAqA/exec', {
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, department, dob })
+        })
+            .then(response => response.text())
+            .then(result => {
+                alert('Data submitted successfully!');
+                document.getElementById('dataForm').reset();
+            })
+            .catch(error => {
+                alert('Error submitting data: ' + error);
+            });
+    });
+</script>
+</body>
+</html>

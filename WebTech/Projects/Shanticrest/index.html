@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent and Meter Data Submission</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+<h1>Submit Data Form</h1>
+
+<form id="rentForm">
+    <label for="room">Select Room:</label>
+    <select id="room" name="room">
+        <!-- Dropdown options for rooms 1 to 17 -->
+        <option value="1">Room 1</option>
+        <option value="2">Room_D 2</option>
+        <option value="3">Room 3</option>
+        <option value="4">Room 4</option>
+        <option value="5">Room_D 5 </option>
+        <option value="6">Room 6</option>
+        <option value="7">Room 7</option>
+        <option value="8">Room 8</option>
+        <option value="9">Room 9</option>
+        <option value="10">Room 10</option>
+        <option value="11">Room 11</option>
+        <option value="12">Room 12</option>
+        <option value="13">Room 13</option>
+        <option value="14">Room 14</option>
+        <option value="15">Room 15</option>
+        <option value="16">Room 16</option>
+        <option value="17">Room 17</option>
+    </select>
+    <br>
+    <label for="month">Select Month:</label>
+    <select id="month" name="month">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+    <br>
+    <label for="rentPaid">Rent Paid:</label>
+    <input type="number" id="rentPaid" name="rentPaid" required><br>
+    <label for="rentDate">Rent Date:</label>
+    <input type="date" id="rentDate" name="rentDate" required><br>
+    <label for="rentStatus">Rent Status:</label>
+    <select id="rentStatus" name="rentStatus">
+        <option value="Paid">Paid</option>
+        <option value="Semi Paid">Semi Paid</option>
+        <option value="Unpaid">Unpaid</option>
+    </select>
+    <br>
+    <label for="balance">Balance:</label>
+    <input type="number" id="balance" name="balance" required><br>
+
+    <label for="meterPrev">Meter Previous:</label>
+    <input type="number" id="meterPrev" name="meterPrev" readonly><br>
+
+    <label for="meterCurrent">Meter Current:</label>
+    <input type="number" id="meterCurrent" name="meterCurrent" required><br>
+
+    <label for="readingDate">Date of Reading:</label>
+    <input type="date" id="readingDate" name="readingDate" required><br>
+
+    <label for="totalUnit">Total Consume Unit:</label>
+    <input type="number" id="totalUnit" name="totalUnit" readonly><br>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" readonly><br>
+
+    <label for="paidDate">Paid Date:</label>
+    <input type="date" id="paidDate" name="paidDate" required><br>
+
+    <label for="paidStatus">Paid Status:</label>
+    <select id="paidStatus" name="rentStatus">
+        <option value="Paid">Paid</option>
+        <option value="Semi Paid">Semi Paid</option>
+        <option value="Unpaid">Unpaid</option>
+    </select><br><br>
+
+    <label for="balanceStatus">Balance Status:</label>
+    <input type="number" id="balanceStatus" name="balanceStatus" required><br>
+    <label for="totalBalance">Total Balance:</label>
+    <input type="number" id="totalBalance" name="totalBalance" required><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="script.js"></script>
+    <script>
+        handleClientLoad();
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        /* Form inputs and selects */
+        input[type="text"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        /* Submit button */
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #0056b3;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #003f8a;
+        }
+
+        /* Display data section */
+        #displayData {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #displayData h4 {
+            margin: 0;
+            padding-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #displayData p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            #displayData {
+                width: 90%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details Form</title>
+    <script>
+        var submissionCount = 0; // Initialize counter for submissions
+
+        function updateBatchAndSemesters() {
+            var degree = document.getElementById("degree").value;
+            var batch = document.getElementById("batch");
+            var semester = document.getElementById("semester");
+            var year = document.getElementById("year");
+
+            // Clear existing options
+            batch.innerHTML = "";
+            semester.innerHTML = "";
+            year.innerHTML = "";
+
+            switch(degree) {
+                case "BTech":
+                case "BE":
+                    // 4 years batch and semesters
+                    for (var i = 2019; i <= 2023; i++) {
+                        batch.innerHTML += "<option value='" + i + "-" + (i+4) + "'>" + i + "-" + (i+4) + "</option>";
+                    }
+                    for (var j = 1; j <= 4; j++) {
+                        year.innerHTML += "<option value='" + j + "'>Year " + j + "</option>";
+                    }
+                    break;
+
+                case "BCA":
+                case "BBA":
+                case "BSc":
+                    // 3 years batch and semesters
+                    for (var i = 2019; i <= 2023; i++) {
+                        batch.innerHTML += "<option value='" + i + "-" + (i+3) + "'>" + i + "-" + (i+3) + "</option>";
+                    }
+                    for (var j = 1; j <= 3; j++) {
+                        year.innerHTML += "<option value='" + j + "'>Year " + j + "</option>";
+                    }
+                    break;
+
+                case "MBA":
+                case "MSc":
+                case "MA":
+                case "MCA":
+                    // 2 years batch and semesters
+                    for (var i = 2019; i <= 2023; i++) {
+                        batch.innerHTML += "<option value='" + i + "-" + (i+2) + "'>" + i + "-" + (i+2) + "</option>";
+                    }
+                    for (var j = 1; j <= 2; j++) {
+                        year.innerHTML += "<option value='" + j + "'>Year " + j + "</option>";
+                    }
+                    break;
+
+                case "PhD":
+                    // 7 years batch and semesters
+                    for (var i = 2019; i <= 2023; i++) {
+                        batch.innerHTML += "<option value='" + i + "-" + (i+7) + "'>" + i + "-" + (i+7) + "</option>";
+                    }
+                    for (var j = 1; j <= 7; j++) {
+                        year.innerHTML += "<option value='" + j + "'>Year " + j + "</option>";
+                    }
+                    break;
+
+                default:
+                    batch.innerHTML = "<option value=''>Select a valid degree first</option>";
+                    semester.innerHTML = "<option value=''>Select a valid degree first</option>";
+                    year.innerHTML = "<option value=''>Select a valid degree first</option>";
+                    break;
+            }
+        }
+
+        function updateSemestersByYear() {
+            var year = document.getElementById("year").value;
+            var semester = document.getElementById("semester");
+            var degree = document.getElementById("degree").value;
+
+            // Clear existing semesters
+            semester.innerHTML = "";
+
+            if (degree === "PhD") {
+                switch (year) {
+                    case "1":
+                        for (var i = 1; i <= 2; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                    case "2":
+                        for (var i = 3; i <= 4; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                    case "3":
+                        for (var i = 5; i <= 6; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                    case "4":
+                        for (var i = 7; i <= 8; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                    case "5":
+                        for (var i = 9; i <= 10; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                    case "6":
+                        for (var i = 11; i <= 12; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                    case "7":
+                        for (var i = 13; i <= 14; i++) {
+                            semester.innerHTML += "<option value='" + i + "'>Semester " + i + "</option>";
+                        }
+                        break;
+                }
+            }
+
+
+            function displayEnteredData() {
+                var name = document.getElementById("name").value;
+                var registration = document.getElementById("registration").value;
+                var degree = document.getElementById("degree").value;
+                var batch = document.getElementById("batch").value;
+                var year = document.getElementById("year").value;
+                var semester = document.getElementById("semester").value;
+
+                submissionCount++; // Increment submission counter
+
+                // Display entered data and number it
+                var newData = "<h4>Submission " + submissionCount + ":</h4>" +
+                    "<p><strong>Name:</strong> " + name + "</p>" +
+                    "<p><strong>Registration ID:</strong> " + registration + "</p>" +
+                    "<p><strong>Degree:</strong> " + degree + "</p>" +
+                    "<p><strong>Batch:</strong> " + batch + "</p>" +
+                    "<p><strong>Year:</strong> " + year + "</p>" +
+                    "<p><strong>Semester:</strong> " + semester + "</p>";
+
+                document.getElementById("displayData").innerHTML += newData;
+
+                // Clear form fields after submission
+                document.getElementById("name").value = "";
+                document.getElementById("registration").value = "";
+                document.getElementById("degree").value = "";
+                document.getElementById("batch").innerHTML = "<option value=''>Select Degree First</option>";
+                document.getElementById("year").innerHTML = "<option value=''>Select Degree First</option>";
+                document.getElementById("semester").innerHTML = "<option value=''>Select Year First</option>";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h2>Student Details Form</h2>
+<form onsubmit="event.preventDefault(); displayEnteredData();">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="registration">Registration ID:</label><br>
+    <input type="text" id="registration" name="registration" required><br><br>
+
+    <label for="degree">Degree:</label><br>
+    <select id="degree" name="degree" onchange="updateBatchAndSemesters()" required>
+        <option value="">Select a Degree</option>
+        <option value="BTech">BTech</option>
+        <option value="BE">BE</option>
+        <option value="BCA">BCA</option>
+        <option value="BBA">BBA</option>
+        <option value="BSc">BSc</option>
+        <option value="MBA">MBA</option>
+        <option value="MSc">MSc</option>
+        <option value="MA">MA</option>
+        <option value="MCA">MCA</option>
+        <option value="PhD">PhD</option>
+    </select><br><br>
+
+    <label for="batch">Batch:</label><br>
+    <select id="batch" name="batch" required>
+        <option value="">Select Degree First</option>
+    </select><br><br>
+
+    <label for="year">Year:</label><br>
+    <select id="year" name="year" onchange="updateSemestersByYear()" required>
+        <option value="">Select Degree First</option>
+    </select><br><br>
+
+    <label for="semester">Semester:</label><br>
+    <select id="semester" name="semester" required>
+        <option value="">Select Year First</option>
+    </select><br><br>
+
+    <input type="submit" value="OK">
+</form>
+
+<div id="displayData"></div>
+
+</body>
+</html>

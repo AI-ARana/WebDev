@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Marksheet</h2>
+<form id="marksForm" onsubmit="event.preventDefault(); saveMarks();">
+    <label for="subject1">Subject 1 Marks:</label>
+    <input type="text" id="subject1" required><br><br>
+
+    <label for="subject2">Subject 2 Marks:</label>
+    <input type="text" id="subject2" required><br><br>
+
+    <label for="subject3">Subject 3 Marks:</label>
+    <input type="text" id="subject3" required><br><br>
+
+    <input type="submit" value="Save Marks">
+</form>
+
+<div id="result"></div>
+
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var regID = urlParams.get('regID');
+    var students = JSON.parse(sessionStorage.getItem('students')) || [];
+    var student = students.find(s => s.registration === regID);
+
+    function saveMarks() {
+        var subject1 = parseFloat(document.getElementById("subject1").value);
+        var subject2 = parseFloat(document.getElementById("subject2").value);
+        var subject3 = parseFloat(document.getElementById("subject3").value);
+
+        var totalMarks = subject1 + subject2 + subject3;
+        var percentage = (totalMarks / 300) * 100;
+        var grade = percentage >= 60 ? "First Division" : "Second Division";
+
+        student.marks = {
+            subject1: subject1,
+            subject2: subject2,
+            subject3: subject3,
+            percentage: percentage.toFixed(2),
+            grade: grade
+        };
+
+        sessionStorage.setItem('students', JSON.stringify(students));
+
+        document.getElementById("result").innerHTML = `<h4>Result:</h4>
+                                                           <p><strong>Percentage:</strong> ${percentage.toFixed(2)}%</p>
+                                                           <p><strong>Grade:</strong> ${grade}</p>`;
+    }
+</script>
+</body>
+</html>
