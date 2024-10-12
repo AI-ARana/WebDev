@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Performance Predictor</title>
+  <link rel="stylesheet" href="spp_styles.css">
+</head>
+<body>
+<h1>Student Performance Prediction</h1>
+<form id="studentForm">
+  <label for="name">Student Name:</label>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="grades">Previous Grades (comma-separated):</label>
+  <input type="text" id="grades" placeholder="e.g., 80, 85, 90"><br><br>
+
+  <label for="attendance">Attendance (%):</label>
+  <input type="number" id="attendance" name="attendance" required><br><br>
+
+  <button type="submit">Predict Performance</button>
+</form>
+
+<div id="result"></div>
+
+<script src="spp_script.js" type="module"></script>
+
+</body>
+</html>

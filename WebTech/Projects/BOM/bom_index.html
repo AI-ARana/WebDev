@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Example Project</title>
+    <link rel="stylesheet" href="bom_style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Browser Object Model (BOM) Demo</h1>
+
+    <div class="info">
+        <h2>Browser Info</h2>
+        <p id="browser-info"></p>
+
+        <h2>Screen Info</h2>
+        <p id="screen-info"></p>
+
+        <h2>Current URL</h2>
+        <p id="current-url"></p>
+    </div>
+
+    <div class="actions">
+        <button onclick="reloadPage()">Reload Page</button>
+        <button onclick="navigateBack()">Go Back</button>
+        <button onclick="navigateForward()">Go Forward</button>
+    </div>
+</div>
+
+<script src="bom_script.js"></script>
+</body>
+</html>

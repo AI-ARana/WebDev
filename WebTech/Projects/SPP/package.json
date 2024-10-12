@@ -1,0 +1,14 @@
+{
+  "name": "student-performance-prediction",
+  "version": "1.0.0",
+  "description": "A web app for predicting student performance based on previous records",
+  "main": "spp_app.js",
+  "scripts": {
+    "start": "node spp_app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}
