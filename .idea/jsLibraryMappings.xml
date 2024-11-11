@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{api, chart.js, chartjs-plugin-datalabels}" />
+    <file url="PROJECT" libraries="{@babel/standalone, api, chart.js, chartjs-plugin-datalabels, react, react-dom}" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

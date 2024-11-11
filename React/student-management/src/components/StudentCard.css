@@ -1,0 +1,65 @@
+/* StudentCard.css */
+
+.student-card {
+    background-color: #3fb394;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow-x: auto;
+    transition: transform 0.2s ease;
+}
+
+.student-card:hover {
+    transform: scale(1.02);
+}
+
+.student-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #6a11cb;
+    text-align: center;
+}
+
+.student-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.student-field {
+    flex: 1 1 calc(25% - 10px); /* Allows 4 fields per row */
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.student-field strong {
+    color: #6a11cb;
+}
+
+.student-card button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #6a11cb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.student-card button:hover {
+    background-color: #fc2562;
+}

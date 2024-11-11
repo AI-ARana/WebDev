@@ -7,5 +7,8 @@
     <orderEntry type="library" name="chart.js" level="application" />
     <orderEntry type="library" name="chartjs-plugin-datalabels" level="application" />
     <orderEntry type="library" name="api" level="application" />
+    <orderEntry type="library" name="react" level="application" />
+    <orderEntry type="library" name="react-dom" level="application" />
+    <orderEntry type="library" name="@babel/standalone" level="application" />
   </component>
 </module>
